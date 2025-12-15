@@ -1,0 +1,125 @@
+# Asana Agent Monitor Configuration
+# Copy this file to config.yml and fill in your values
+
+# Asana Configuration
+asana:
+  # Get your Personal Access Token from: https://app.asana.com/0/my-apps
+  api_key: ${ASANA_API_KEY}
+
+  # Your workspace GID (from workspace URL)
+  workspace_gid: "YOUR_WORKSPACE_GID"
+
+  # Project GID to monitor (from project URL)
+  project_gid: "YOUR_PROJECT_GID"
+
+  # User mappings (name => GID)
+  # Find GIDs from user profile URLs
+  users:
+    tom: "YOUR_TOM_GID"
+    art: "YOUR_ART_GID"
+    lauren: "YOUR_LAUREN_GID"
+
+# AI Provider Configuration
+# Choose one or more providers. The agent will use the first available.
+ai:
+  # Gemini (Google) - Free tier available
+  # Get API key from: https://makersuite.google.com/app/apikey
+  gemini:
+    enabled: true
+    api_key: ${GEMINI_API_KEY}
+    model: gemini-pro  # or gemini-1.5-pro
+
+  # Claude (Anthropic)
+  # Get API key from: https://console.anthropic.com/
+  claude:
+    enabled: false
+    api_key: ${ANTHROPIC_API_KEY}
+    model: claude-3-5-sonnet-20241022
+
+  # OpenAI (GPT-4)
+  # Get API key from: https://platform.openai.com/api-keys
+  openai:
+    enabled: false
+    api_key: ${OPENAI_API_KEY}
+    model: gpt-4o-mini
+
+  # Perplexity (Research-focused)
+  # Get API key from: https://www.perplexity.ai/settings/api
+  perplexity:
+    enabled: false
+    api_key: ${PERPLEXITY_API_KEY}
+    model: sonar
+
+# Agent Behavior
+agent:
+  # How often to check for new tasks (seconds)
+  poll_interval: 60
+
+  # Enable comment monitoring (respond to task comments)
+  comment_monitoring: true
+
+  # Maximum number of tasks to process per cycle
+  max_tasks_per_cycle: 10
+
+  # Enable parallel task processing
+  parallel_processing: true
+
+  # Task title update behavior
+  # Options: none, prefix, inline
+  title_update_mode: prefix
+
+# Workflow Configuration
+workflows:
+  # General Search - Uses Perplexity for web research
+  general_search:
+    enabled: true
+    keywords:
+      - search for
+      - find me
+      - shopping
+      - buy
+      - recommend
+      - suggest
+      - looking for
+      - best
+
+  # Article Summary - Summarizes articles/URLs
+  article_summary:
+    enabled: true
+    keywords:
+      - summarize
+      - summary
+      - read
+
+  # Email Draft - Drafts email responses
+  email_draft:
+    enabled: true
+    keywords:
+      - email
+      - draft email
+      - message
+      - write to
+
+  # Newsletter Summary - Processes newsletters
+  newsletter_summary:
+    enabled: true
+    keywords:
+      - newsletter
+      - newsletters
+      - newsletter digest
+      - news summary
+
+# Optional: Code Mode APIs (for Theory Ventures users)
+# Leave commented out for standard installation
+# code_mode:
+#   task_api_path: /Users/yourusername/.claude/code_mode/task_api
+#   email_api_path: /Users/yourusername/.claude/code_mode/email_api
+#   attio_api_path: /Users/yourusername/.claude/code_mode/attio_api
+
+# Logging
+logging:
+  level: INFO  # DEBUG, INFO, WARN, ERROR
+  file: logs/agent.log
+  error_file: logs/agent-error.log
+  max_size: 10485760  # 10MB
+  max_files: 5

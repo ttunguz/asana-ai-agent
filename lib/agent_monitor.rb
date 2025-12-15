@@ -6,7 +6,19 @@ require_relative '../config/agent_config'
 require_relative 'workflow_router'
 require_relative 'comment_tracker'
 require_relative 'llm/robust_client'
-require '/Users/tomasztunguz/.gemini/code_mode/task_api'
+
+# Optional: Load TaskAPI if configured (Code Mode integration)
+if AgentConfig.task_api_path
+  begin
+    require AgentConfig.task_api_path
+    TASK_API_AVAILABLE = true
+  rescue LoadError => e
+    puts "[WARNING] Failed to load TaskAPI from #{AgentConfig.task_api_path}: #{e.message}"
+    TASK_API_AVAILABLE = false
+  end
+else
+  TASK_API_AVAILABLE = false
+end
 
 class AgentMonitor
   LOCK_FILE = '/tmp/agent_monitor.lock'
@@ -43,19 +55,12 @@ class AgentMonitor
     # Load environment variables from .asana-monitor-env if present
     load_env_secrets
 
-    # Ensure API key is available from keychain if not in ENV
+    # Ensure API key is available
+    # Priority: 1) ENV['ASANA_API_KEY'], 2) Config file, 3) Error
+    ENV['ASANA_API_KEY'] ||= AgentConfig.asana_api_key
+
     unless ENV['ASANA_API_KEY']
-      begin
-        require '/Users/tomasztunguz/.gemini/custom_tools_src/secret_manager'
-        if key = SecretManager.get('ASANA_API_KEY')
-          ENV['ASANA_API_KEY'] = key
-          puts "[#{Time.now}] Loaded ASANA_API_KEY from keychain"
-        else
-          puts "[#{Time.now}] [WARNING] ASANA_API_KEY not found in ENV or keychain"
-        end
-      rescue LoadError
-        puts "[#{Time.now}] [WARNING] Could not load SecretManager to fetch API key"
-      end
+      raise AgentConfig::ConfigurationError, "ASANA_API_KEY not found in environment or config file"
     end
 
     @project_gids = AgentConfig::ASANA_PROJECT_GIDS
@@ -987,20 +992,84 @@ class AgentMonitor
   end
 
   def add_task_comment(task_gid, text)
-    # Use TaskAPI for adding comments
-    result = TaskAPI.add_comment(task_id: task_gid, comment: text)
-    if result.is_a?(Hash) && result[:success] == false
-      log "Failed to add comment to task #{task_gid}: #{result[:error] || result[:message]}", :error
+    if TASK_API_AVAILABLE && defined?(TaskAPI)
+      # Use TaskAPI if available (Code Mode integration)
+      result = TaskAPI.add_comment(task_id: task_gid, comment: text)
+      if result.is_a?(Hash) && result[:success] == false
+        log "Failed to add comment to task #{task_gid}: #{result[:error] || result[:message]}", :error
+      end
+    else
+      # Fallback: Use direct Asana API
+      add_task_comment_direct(task_gid, text)
     end
   rescue => e
     log "Failed to add comment to task #{task_gid}: #{e.message}", :error
   end
 
+  def add_task_comment_direct(task_gid, text)
+    require 'net/http'
+    require 'json'
+    require 'uri'
+
+    url = URI("https://app.asana.com/api/1.0/tasks/#{task_gid}/stories")
+
+    request = Net::HTTP::Post.new(url)
+    request["Authorization"] = "Bearer #{ENV['ASANA_API_KEY']}"
+    request["Content-Type"] = "application/json"
+    request.body = {
+      data: {
+        text: text
+      }
+    }.to_json
+
+    response = Net::HTTP.start(url.hostname, url.port, use_ssl: true, verify_mode: OpenSSL::SSL::VERIFY_NONE, open_timeout: 10, read_timeout: 30) do |http|
+      http.request(request)
+    end
+
+    unless response.code == '201'
+      raise "Asana API error: #{response.code} - #{response.body}"
+    end
+  rescue => e
+    raise "Failed to add comment via Asana API: #{e.message}"
+  end
+
   def complete_task(task_gid)
-    # Use TaskAPI for completing tasks
-    TaskAPI.complete(task_id: task_gid, format: :concise)
+    if TASK_API_AVAILABLE && defined?(TaskAPI)
+      # Use TaskAPI if available
+      TaskAPI.complete(task_id: task_gid, format: :concise)
+    else
+      # Fallback: Use direct Asana API
+      complete_task_direct(task_gid)
+    end
   rescue => e
     log "Failed to complete task #{task_gid}: #{e.message}", :error
+  end
+
+  def complete_task_direct(task_gid)
+    require 'net/http'
+    require 'json'
+    require 'uri'
+
+    url = URI("https://app.asana.com/api/1.0/tasks/#{task_gid}")
+
+    request = Net::HTTP::Put.new(url)
+    request["Authorization"] = "Bearer #{ENV['ASANA_API_KEY']}"
+    request["Content-Type"] = "application/json"
+    request.body = {
+      data: {
+        completed: true
+      }
+    }.to_json
+
+    response = Net::HTTP.start(url.hostname, url.port, use_ssl: true, verify_mode: OpenSSL::SSL::VERIFY_NONE, open_timeout: 10, read_timeout: 30) do |http|
+      http.request(request)
+    end
+
+    unless response.code == '200'
+      raise "Asana API error: #{response.code} - #{response.body}"
+    end
+  rescue => e
+    raise "Failed to complete task via Asana API: #{e.message}"
   end
 
   def log(message, level = :info)
