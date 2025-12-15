@@ -1,0 +1,11 @@
+[2025-11-16 14:19:24] [INFO] AgentMonitor initialized (project: 1211959613518208)
+[2025-11-16 14:19:24] [INFO] Starting agent monitor run...
+[2025-11-16 14:19:25] [INFO] Found 2 incomplete tasks
+[2025-11-16 14:19:25] [INFO] Processing task 1211959820466971: thehog.ai
+[2025-11-16 14:19:25] [INFO]   Routing to Workflows::CompanyResearch
+#<Thread:0x0000000122eea980 /Users/tomasztunguz/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/open3-0.2.1/lib/open3.rb:664 run> terminated with exception (report_on_exception is true):
+/Users/tomasztunguz/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/open3-0.2.1/lib/open3.rb:664:in 'IO#read': stream closed in another thread (IOError)
+	from /Users/tomasztunguz/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/open3-0.2.1/lib/open3.rb:664:in 'block (2 levels) in Open3.capture3'
+#<Thread:0x0000000122eea840 /Users/tomasztunguz/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/open3-0.2.1/lib/open3.rb:665 run> terminated with exception (report_on_exception is true):
+/Users/tomasztunguz/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/open3-0.2.1/lib/open3.rb:665:in 'IO#read': stream closed in another thread (IOError)
+	from /Users/tomasztunguz/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/open3-0.2.1/lib/open3.rb:665:in 'block (2 levels) in Open3.capture3'

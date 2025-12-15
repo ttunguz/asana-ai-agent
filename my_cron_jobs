@@ -1,0 +1,1 @@
+0 3 * * * /Users/tomasztunguz/Documents/coding/asana-agent-monitor/bin/daily_meeting_processor.rb

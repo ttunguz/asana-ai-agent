@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(timeout 30 ./bin/monitor.rb:*)",
+      "Bash(chmod:*)",
+      "Bash(ruby:*)",
+      "Bash(apirun:*)",
+      "Bash(timeout 60 ruby:*)",
+      "Bash(tee:*)",
+      "Bash(cat:*)",
+      "Bash(git push:*)",
+      "Bash(ls:*)",
+      "Bash(curl:*)",
+      "Bash(timeout 30 ruby:*)",
+      "Bash(timeout 5 claude:*)",
+      "Bash(timeout 10 cat:*)",
+      "Bash(claude --print --dangerously-skip-permissions)",
+      "Bash(timeout 120 ruby:*)",
+      "Bash(timeout 10 claude:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

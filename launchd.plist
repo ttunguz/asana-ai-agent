@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.theory.asana-monitor</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>/Users/tomasztunguz/.gemini/bin/asana_monitor_wrapper.sh >> /Users/tomasztunguz/Library/Logs/com.theory.asana-monitor.log 2>&1</string>
+    </array>
+    <key>KeepAlive</key>
+    <true/>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>ProcessType</key>
+    <string>Background</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/Users/tomasztunguz/.rbenv/shims:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>ASANA_API_KEY</key>
+        <string>2/1203633898433084/1209558442177454:c038c7013b614f1df488263c4968a4cd</string>
+        <key>HOME</key>
+        <string>/Users/tomasztunguz</string>
+    </dict>
+</dict>
+</plist>

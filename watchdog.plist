@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.theory.asana-monitor-watchdog</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/tomasztunguz/Documents/coding/asana-agent-monitor/bin/watchdog.rb</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>900</integer>
+    <key>StandardOutPath</key>
+    <string>/Users/tomasztunguz/Library/Logs/com.theory.asana-monitor-watchdog.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/tomasztunguz/Library/Logs/com.theory.asana-monitor-watchdog.log</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/Users/tomasztunguz/.rbenv/shims:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key>
+        <string>/Users/tomasztunguz</string>
+        <key>LANG</key>
+        <string>en_US.UTF-8</string>
+        <key>LC_ALL</key>
+        <string>en_US.UTF-8</string>
+    </dict>
+</dict>
+</plist>

@@ -1,0 +1,8 @@
+[2025-11-16 13:58:31] [INFO] AgentMonitor initialized (project: 1211959613518208)
+[2025-11-16 13:58:31] [INFO] Starting agent monitor run...
+[2025-11-16 13:58:31] [ERROR] Error fetching tasks: SSL_connect returned=1 errno=0 peeraddr=65.8.180.91:443 state=error: certificate verify failed (unable to get certificate CRL)
+[2025-11-16 13:58:31] [ERROR] /Users/tomasztunguz/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/net-protocol-0.2.2/lib/net/protocol.rb:46:in 'OpenSSL::SSL::SSLSocket#connect_nonblock'
+/Users/tomasztunguz/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/net-protocol-0.2.2/lib/net/protocol.rb:46:in 'Net::Protocol#ssl_socket_connect'
+/Users/tomasztunguz/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/net-http-0.7.0/lib/net/http.rb:1736:in 'Net::HTTP#connect'
+[2025-11-16 13:58:31] [INFO] Found 0 incomplete tasks
+[2025-11-16 13:58:31] [INFO] Agent monitor run complete

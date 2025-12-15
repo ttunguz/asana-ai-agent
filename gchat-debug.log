@@ -1,0 +1,78 @@
+[2025-11-30T10:14:10-08:00] App: Key received: "/", currentView=3
+[2025-11-30T10:14:10-08:00] SpacesView: / key pressed, entering search mode
+[2025-11-30T10:14:22-08:00] App: Key received: "enter", currentView=3
+[2025-11-30T10:14:23-08:00] App: Key received: "j", currentView=3
+[2025-11-30T10:14:24-08:00] App: Key received: "k", currentView=3
+[2025-11-30T10:14:24-08:00] App: Key received: "enter", currentView=3
+[2025-11-30T10:14:31-08:00] App: Key received: "c", currentView=0
+[2025-11-30T10:14:31-08:00] UI: Compose key pressed. inSpaceMode=true, currentSpaceID=spaces/AAQAk7rlQwY
+[2025-11-30T10:14:31-08:00] UI: Switched to compose view for space spaces/AAQAk7rlQwY (pseudorandom)
+[2025-11-30T10:14:32-08:00] App: Key received: "backspace", currentView=4
+[2025-11-30T10:14:32-08:00] App: Key received: "[> SUPPORTING EVIDENCE Vercel's lead agent was built by one GTM engineer\n>in six weeks, working part-time. It maintained the lead-to-opportunity\n>conversion rate while reducing response times. This allowed them to\n>reassign 9 of their 10 inbound SDRs to outbound roles.\n>\n> NOTABLE QUOTES \"For us, we had 10 SDRs doing this inbound workflow, and\n>now we just have one that is effectively QAing the agent. The other nine\n>we deployed on outbound.\" — Jean Grosser\n>\n> \"It was six weeks before we felt confident going from 10 to 1. So it\n>wasn't like this was a multi-quarter process. It actually moved super\n>quickly.\" — Jean Grosser\n>\n> \"The agent is as good as our humans were, but it actually condensed the\n>number of touches it takes to convert because it's so much quicker at\n>responding.\" — Jean Grosser\n>\n> \"I think we're getting to a point where with layering in agents,\n>ideally, we finally get salespeople to a point where they're actually\n>spending 70 percent of their time interacting with humans.\" — Jean\n>Grosser\n]", currentView=4
+[2025-11-30T10:14:33-08:00] App: Key received: "ctrl+s", currentView=4
+[2025-11-30T10:14:33-08:00] UI: Sending message to space spaces/AAQAk7rlQwY
+[2025-11-30T10:14:34-08:00] UI: SendMessage completed - error: <nil>
+[2025-11-30T10:14:34-08:00] UI: Message sent result - error: <nil>
+[2025-11-30T10:14:34-08:00] UI: Message sent successfully, refreshing space spaces/AAQAk7rlQwY
+[2025-11-30T10:14:35-08:00] App: Key received: "j", currentView=0
+[2025-11-30T10:14:35-08:00] App: About to update ListView with key message
+[2025-11-30T10:14:35-08:00] ListView: Key received: "j", searchMode=false
+[2025-11-30T10:14:36-08:00] App: Key received: "enter", currentView=0
+[2025-11-30T10:14:38-08:00] App: Key received: "]11;rgb:0000/0000/0000", currentView=1
+[2025-11-30T10:14:38-08:00] App: Key received: "alt+\\", currentView=1
+[2025-11-30T10:14:39-08:00] App: Key received: "O", currentView=1
+[2025-11-30T10:15:01-08:00] App: Key received: "q", currentView=1
+[2025-11-30T10:15:01-08:00] App: About to update ListView with key message
+[2025-11-30T10:15:01-08:00] ListView: Key received: "q", searchMode=false
+[2025-11-30T10:15:02-08:00] App: Key received: "q", currentView=0
+[2025-11-30T10:16:20-08:00] App: Key received: "enter", currentView=3
+[2025-11-30T10:16:22-08:00] App: Key received: "r", currentView=0
+[2025-11-30T10:16:22-08:00] App: Key received: "[Vercel built a \"loss bot\" on Gong transcripts in\njust two days. It analyzed calls and correctly identified the real\nreason for a major lost deal was a failure to prove value, not price as\nthe AE believed. The \"lead agent\" costs only ~$1,000 per year to run,\nreplacing over $1M in salary costs.]", currentView=2
+[2025-11-30T10:16:23-08:00] App: Key received: "up", currentView=2
+[2025-11-30T10:16:23-08:00] App: Key received: "down", currentView=2
+[2025-11-30T10:16:23-08:00] App: Key received: "up", currentView=2
+[2025-11-30T10:16:23-08:00] App: Key received: "up", currentView=2
+[2025-11-30T10:16:23-08:00] App: Key received: "up", currentView=2
+[2025-11-30T10:16:23-08:00] App: Key received: "up", currentView=2
+[2025-11-30T10:16:23-08:00] App: Key received: "up", currentView=2
+[2025-11-30T10:16:24-08:00] App: Key received: "up", currentView=2
+[2025-11-30T10:16:24-08:00] App: Key received: "up", currentView=2
+[2025-11-30T10:16:24-08:00] App: Key received: "ctrl+a", currentView=2
+[2025-11-30T10:16:25-08:00] App: Key received: "right", currentView=2
+[2025-11-30T10:16:25-08:00] App: Key received: "backspace", currentView=2
+[2025-11-30T10:16:25-08:00] App: Key received: "down", currentView=2
+[2025-11-30T10:16:26-08:00] App: Key received: "down", currentView=2
+[2025-11-30T10:16:26-08:00] App: Key received: "backspace", currentView=2
+[2025-11-30T10:16:27-08:00] App: Key received: " ", currentView=2
+[2025-11-30T10:16:27-08:00] App: Key received: "down", currentView=2
+[2025-11-30T10:16:27-08:00] App: Key received: "backspace", currentView=2
+[2025-11-30T10:16:28-08:00] App: Key received: " ", currentView=2
+[2025-11-30T10:16:28-08:00] App: Key received: "down", currentView=2
+[2025-11-30T10:16:28-08:00] App: Key received: "down", currentView=2
+[2025-11-30T10:16:29-08:00] App: Key received: "ctrl+a", currentView=2
+[2025-11-30T10:16:29-08:00] App: Key received: "backspace", currentView=2
+[2025-11-30T10:16:30-08:00] App: Key received: " ", currentView=2
+[2025-11-30T10:16:30-08:00] App: Key received: "down", currentView=2
+[2025-11-30T10:16:30-08:00] App: Key received: "down", currentView=2
+[2025-11-30T10:16:31-08:00] App: Key received: "ctrl+a", currentView=2
+[2025-11-30T10:16:31-08:00] App: Key received: "backspace", currentView=2
+[2025-11-30T10:16:32-08:00] App: Key received: " ", currentView=2
+[2025-11-30T10:16:32-08:00] App: Key received: "ctrl+s", currentView=2
+[2025-11-30T10:16:33-08:00] UI: Message sent result - error: <nil>
+[2025-11-30T10:16:33-08:00] UI: Message sent successfully, refreshing space spaces/AAQAk7rlQwY
+[2025-11-30T10:33:31-08:00] App: Key received: "i", currentView=0
+[2025-11-30T10:33:31-08:00] App: About to update ListView with key message
+[2025-11-30T10:33:31-08:00] ListView: Key received: "i", searchMode=false
+[2025-11-30T10:34:59-08:00] App: Key received: "k", currentView=0
+[2025-11-30T10:34:59-08:00] App: About to update ListView with key message
+[2025-11-30T10:34:59-08:00] ListView: Key received: "k", searchMode=false
+[2025-11-30T10:34:59-08:00] App: Key received: "k", currentView=0
+[2025-11-30T10:34:59-08:00] App: About to update ListView with key message
+[2025-11-30T10:34:59-08:00] ListView: Key received: "k", searchMode=false
+[2025-11-30T10:34:59-08:00] App: Key received: "k", currentView=0
+[2025-11-30T10:34:59-08:00] App: About to update ListView with key message
+[2025-11-30T10:34:59-08:00] ListView: Key received: "k", searchMode=false
+[2025-11-30T10:38:12-08:00] App: Key received: "R", currentView=0
+[2025-11-30T10:38:12-08:00] App: About to update ListView with key message
+[2025-11-30T10:38:12-08:00] ListView: Key received: "R", searchMode=false
+[2025-11-30T10:38:38-08:00] App: Key received: "q", currentView=0
